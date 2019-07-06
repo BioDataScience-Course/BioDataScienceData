@@ -1,6 +1,6 @@
 Package: BioDataScienceData
 Title: A serie of datasets collected with interactive exercises to teach biological data science 
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: c(
   person("Guyliann", "Engels", role = c("aut", "cre"),
   email = "guyliann.engels@umons.ac.be"),

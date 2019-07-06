@@ -14,13 +14,34 @@ BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
 ## English version
 
 The goal of BioDataScienceData is to provide several datasets obtained
-with the quizzes learnr at BioDatascience package.
+with the quizzes learnr at BioDataScience package. The collected data
+with the quizzes are stocked in a MongoDB database. This data are
+extracted and anonymised before to become availability in this package.
 
-The collected data with the quizzes are stocked in a MongoDB database.
-This data are extracted and anonymised before to become availability in
-this package.
+### Biological Data Science – UMONS Course projects.
 
-For the french version, see below.
+The goal of this organisation to offer data science courses for
+biologists in French at the University of Mons (Belgium). Several
+repositories are led to produce coherent materials. All resources are
+centralised at <http://biodatascience-course.org>.
+
+You can find the following repositories:
+
+  - [sdd-umons](https://github.com/BioDataScience-Course/sdd-umons) :
+    the book online to help the students for their
+    self-learning.
+  - [BioDataScience](https://github.com/BioDataScience-Course/BioDataScience)
+    : package with all quizzes used by students for their
+    self-assessment.
+  - [BioDataScienceData](https://github.com/BioDataScience-Course/BioDataScienceData)
+    : package with anonymised datasets that are collected with
+    BioDataScience
+    quizzes.
+  - [bds\_analyse](https://github.com/BioDataScience-Course/bdsd_analyse)
+    : A shiny app to visualise the data of BioDataScienceData that
+    provides useful and detailed information on the learning process.
+    this app draws from the
+    [sdd\_problem\_detection](https://github.com/BioDataScience-Course/sdd_problem_detection)
 
 ### Installation
 
@@ -40,7 +61,24 @@ remotes::install_github("BioDataScience-Course/BioDataScienceData")
 
 ### Example
 
-TODO
+``` r
+bds <- data.io::read("biodatascience", package = "BioDataScienceData")
+```
+
+The dataset contains41126. It is the activities and answers of 43
+students on `rlength(levels(bds$tutorial))` quizzes.
+
+The figure below shows the entries by time and by
+quiz.
+
+``` r
+chart::chart(bds, forcats::fct_relevel(tutorial, rev(levels(bds$tutorial))) ~ date %fill=% tutorial) +
+  ggridges::geom_density_ridges(show.legend = F) +
+  ggplot2::labs( x = "Time", y = "Quiz")
+#> Picking joint bandwidth of 155000
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ### Note
 
@@ -140,11 +178,11 @@ questionnaire.
 ``` r
 chart::chart(bds, forcats::fct_relevel(tutorial, rev(levels(bds$tutorial))) ~ date %fill=% tutorial) +
   ggridges::geom_density_ridges(show.legend = F) +
-  ggplot2::labs( x = "Temps", y = "Quiz")
+  ggplot2::labs( x = "Temps", y = "Questionnaires")
 #> Picking joint bandwidth of 155000
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 De octobre à début janvier, la figure ci-dessus montre un apprentissage
 linéaire suivant les chapitres de livre proposé pour leur apprentissage
