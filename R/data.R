@@ -1,30 +1,29 @@
-#' Collected data of interactive quiz
+#' Collected data of interactive quizzes
 #'
-#' Collected data of interactive quiz to teach biological data science.
+#' Collected data of interactive quizzes used in a biological data science course.
 #'
 #' @format A data frame with 45721 rows and 11 variables:
 #' \describe{
-#'   \item{date}{Time of entries}
-#'   \item{tutorial}{Several quizzes that are completed by students}
-#'   \item{version}{Version of the quizzes}
-#'   \item{user_name}{Name of the students}
-#'   \item{label}{Label of the question}
-#'   \item{correct}{For the multiple choice question, the answers can be TRUE or FALSE. For the open question, the answers is TRUE if the students submit the answers.}
-#'   \item{event}{Four specefic events.}
-#'   \item{data}{The answers proposed by the students (JSON).}
+#'   \item{date}{Time of entry}
+#'   \item{tutorial}{Quiz currently completed}
+#'   \item{version}{Version of the quiz}
+#'   \item{user_name}{Generic (anonymized) name of the student}
+#'   \item{label}{Label of the question in the quiz}
+#'   \item{correct}{For a multiple choice questions, whether answer is correct
+#'     (\code{TRUE}) or not (\code{FALSE}). For an open question, whether the
+#'     student submitted its final solution (\code{TRUE}), no mather if that
+#'     solution is correct or not.}
+#'   \item{event}{Events triggering the entry (learnr UI-related).}
+#'   \item{data}{The answers proposed by the student (JSON string).}
 #'   \item{tuto_label}{Combination of tutorial and label variables.}
-#'   \item{data_conv}{Answers of questions extracted of data.}
-#'   \item{data_qu}{Question extracted of data if her save in data.}
+#'   \item{data_conv}{Answer extracted of 'data'.}
+#'   \item{data_qu}{Question extracted of 'data'.}
 #' }
 #' @source \url{http://biodatascience-course.sciviews.org}
 #'
 #' @examples
-#'
-#'
 #' data(biodatascience)
-#'
 #' class(biodatascience)
-#'
 #' head(biodatascience)
 #'
 "biodatascience"
