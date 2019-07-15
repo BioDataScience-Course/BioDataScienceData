@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 <!-- badges: end -->
 
 
@@ -42,7 +42,7 @@ You can find the following repositories:
 You can install the released version of BioDataScienceData from GitHub with:
 
 ``` r
-remotes::install_github("BioDataScience-Course/BioDataScienceData@0.1.0")
+remotes::install_github("BioDataScience-Course/BioDataScienceData@v0.1.0")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -55,18 +55,13 @@ remotes::install_github("BioDataScience-Course/BioDataScienceData")
 ### Example
 
 ```{r}
-bds <- data.io::read("biodatascience", package = "BioDataScienceData")
+library("BioDataScienceData")
+data("biodatascience")
 ```
 
-The dataset contains`r nrow(bds)`. It is the activities and answers of `r length(levels(bds$user_name))` students on `rlength(levels(bds$tutorial))` quizzes.
+The dataset contains`r nrow(biodatascience)`. It is the activities and answers of `r length(levels(biodatascience$user_name))` students on `r length(levels(biodatascience$tutorial))` quizzes.
 
-The figure below shows the entries by time and by quiz. 
 
-```{r}
-chart::chart(bds, forcats::fct_relevel(tutorial, rev(levels(bds$tutorial))) ~ date %fill=% tutorial) +
-  ggridges::geom_density_ridges(show.legend = F) +
-  ggplot2::labs( x = "Time", y = "Quiz")
-```
 
 ### Note
 
@@ -112,7 +107,7 @@ Parmi les dépot de cette organisation, on peut retrouver les dépot suivant:
 Vous pouvez installer la dernière version stable de  BioDataScienceData depuis [GitHub](https://github.com/) avec :
 
 ``` r
-remotes::install_github("BioDataScience-Course/BioDataScienceData@0.1.0")
+remotes::install_github("BioDataScience-Course/BioDataScienceData@v0.1.0")
 ```
 
 et la version en développement depuis And the development version from [GitHub](https://github.com/) avec :
@@ -124,20 +119,11 @@ remotes::install_github("BioDataScience-Course/BioDataScienceData")
 ### Exemple 
 
 ```{r}
-bds <- data.io::read("biodatascience", package = "BioDataScienceData")
+library(BioDataScienceData)
+data("biodatascience")
 ```
 
-Ce jeu de données comprend `r nrow(bds)` venant du suivi de l'activité de `r length(levels(bds$user_name))` étudiants ayant appris par eux même avec `r length(levels(bds$tutorial))` questionnaires. 
-
-Nous pouvons par exemple suivre l'évolution des entrées au cours du temps par questionnaire.
-
-```{r}
-chart::chart(bds, forcats::fct_relevel(tutorial, rev(levels(bds$tutorial))) ~ date %fill=% tutorial) +
-  ggridges::geom_density_ridges(show.legend = F) +
-  ggplot2::labs( x = "Temps", y = "Questionnaires")
-```
-
-De octobre à début janvier, la figure ci-dessus montre un apprentissage linéaire suivant les chapitres de livre proposé pour leur apprentissage par eux-mêmes. Une seconde phase est observable fin janvier les jours précédents l'examen. Enfin, de léger pics sont observables après les examens attribués aux étudiants préparant leur seconde session.
+Ce jeu de données comprend `r nrow(biodatascience)` venant du suivi de l'activité de `r length(levels(biodatascience$user_name))` étudiants ayant appris par eux même avec `r length(levels(biodatascience$tutorial))` questionnaires. 
 
 ### Note
 

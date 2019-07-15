@@ -7,8 +7,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![License: CC
-BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 <!-- badges: end -->
 
 ## English version
@@ -49,7 +49,7 @@ You can install the released version of BioDataScienceData from GitHub
 with:
 
 ``` r
-remotes::install_github("BioDataScience-Course/BioDataScienceData@0.1.0")
+remotes::install_github("BioDataScience-Course/BioDataScienceData@v0.1.0")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -62,23 +62,13 @@ remotes::install_github("BioDataScience-Course/BioDataScienceData")
 ### Example
 
 ``` r
-bds <- data.io::read("biodatascience", package = "BioDataScienceData")
+library("BioDataScienceData")
+data("biodatascience")
 ```
 
 The dataset contains41126. It is the activities and answers of 43
-students on `rlength(levels(bds$tutorial))` quizzes.
-
-The figure below shows the entries by time and by
-quiz.
-
-``` r
-chart::chart(bds, forcats::fct_relevel(tutorial, rev(levels(bds$tutorial))) ~ date %fill=% tutorial) +
-  ggridges::geom_density_ridges(show.legend = F) +
-  ggplot2::labs( x = "Time", y = "Quiz")
-#> Picking joint bandwidth of 155000
-```
-
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+students on 18
+quizzes.
 
 ### Note
 
@@ -151,7 +141,7 @@ depuis [GitHub](https://github.com/) avec
 :
 
 ``` r
-remotes::install_github("BioDataScience-Course/BioDataScienceData@0.1.0")
+remotes::install_github("BioDataScience-Course/BioDataScienceData@v0.1.0")
 ```
 
 et la version en développement depuis And the development version from
@@ -165,31 +155,13 @@ remotes::install_github("BioDataScience-Course/BioDataScienceData")
 ### Exemple
 
 ``` r
-bds <- data.io::read("biodatascience", package = "BioDataScienceData")
+library(BioDataScienceData)
+data("biodatascience")
 ```
 
 Ce jeu de données comprend 41126 venant du suivi de l’activité de 43
-étudiants ayant appris par eux même avec 18 questionnaires.
-
-Nous pouvons par exemple suivre l’évolution des entrées au cours du
-temps par
-questionnaire.
-
-``` r
-chart::chart(bds, forcats::fct_relevel(tutorial, rev(levels(bds$tutorial))) ~ date %fill=% tutorial) +
-  ggridges::geom_density_ridges(show.legend = F) +
-  ggplot2::labs( x = "Temps", y = "Questionnaires")
-#> Picking joint bandwidth of 155000
-```
-
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
-
-De octobre à début janvier, la figure ci-dessus montre un apprentissage
-linéaire suivant les chapitres de livre proposé pour leur apprentissage
-par eux-mêmes. Une seconde phase est observable fin janvier les jours
-précédents l’examen. Enfin, de léger pics sont observables après les
-examens attribués aux étudiants préparant leur seconde
-session.
+étudiants ayant appris par eux même avec 18
+questionnaires.
 
 ### Note
 
