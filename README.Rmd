@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 ## English version
 
-The goal of BioDataScienceData is to provide several datasets obtained with the quizzes learnr at BioDataScience package. The collected data with the quizzes are stocked in a MongoDB database. This data are extracted and anonymised before to become availability in this package. 
+The goal of BioDataScienceData is to provide several datasets obtained with the quizzes learnr at BioDataScience package. The collected data with the quizzes are stocked in a MongoDB database. This data are extracted and anonymised before to become available in this package. 
 
 
 ### Biological Data Science – UMONS Course projects.
